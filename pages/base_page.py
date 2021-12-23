@@ -26,8 +26,20 @@ class BasePage():
     def open(self):
         self.browser.get(self.url)
 
-    # метод проверки что в header присутствует телефон магазина чая
+    # метод проверки что в header присутствует телефон магазина чая (общий для всех страниц метод)
     def should_be_telephone_number_tea_shop(self):
         number = self.find_element(BasePageLocators.TEA_SHOP_PHONE)
         result = number.text
         assert "8 (495) 143-35-16 МАГАЗИН ЧАЯ" == result
+
+    # метод проверки что в header присутствует телефон оптового отдела (общий для всех страниц метод)
+    def should_be_telephone_number_wholesale_department(self):
+        number = self.find_element(BasePageLocators.WHOLESALES_DEPERTAMENT_PHONE)
+        result = number.text
+        assert "8 (495) 143-35-15 ОПТОВЫЙ ОТДЕЛ" == result
+
+    # метод проверки что в header присутствует кнопка прайс-лист (общий для всех страниц метод)
+    def should_be_button_price_list(self):
+        button = self.find_element(BasePageLocators.BUTTON_PRISE_LIST)
+        result = button.text
+        assert "ПРАЙС-ЛИСТ" == result

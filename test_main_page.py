@@ -20,3 +20,9 @@ def test_the_price_list_button_opens_the_price_list_form(browser):
     main_page = MainPage(browser, url_main_page)
     main_page.open()
     main_page.the_price_list_button_opens_the_form_for_receiving_price_list()
+
+def test_guest_should_see_in_header_information_list(browser):
+    main_page = MainPage(browser, url_main_page)
+    main_page.open()
+    main_page.should_be_information_list()
+

@@ -2,6 +2,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 from .locators import BasePageLocators
+from selenium.webdriver.common.by import By
 import pytest
 import time
 
@@ -57,9 +58,20 @@ class BasePage():
         result = button.text
         assert "ПРАЙС-ЛИСТ" == result
 
-    # метод проверки что при нажатии кнопки прайс-лист открывается форма прайс-лист
+    # метод проверки что при нажатии кнопки прайс-лист открывается форма прайс-лист (общий для всех страниц метод)
     def the_price_list_button_opens_the_form_for_receiving_price_list(self):
         button = self.find_element(BasePageLocators.BUTTON_PRISE_LIST)
         button.click()
         assert self.is_element_present(*BasePageLocators.FORM_PRISE_LIST), "Form prise_list is not presented"
+
+    # метод проверки, что в header присутствует кнопка выпадающего списка "ИНФОРМАЦИЯ" (общий для всех страниц метод)
+    def should_be_information_list(self):
+        button = self.find_element(BasePageLocators.INFORMATION_LIST)
+        button.click()
+        result = button.text
+        assert "ИНФОРМАЦИЯ" == result
+
+
+
+
 

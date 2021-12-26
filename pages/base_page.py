@@ -71,6 +71,32 @@ class BasePage():
         result = button.text
         assert "ИНФОРМАЦИЯ" == result
 
+    # метод проверки, что в выпадающем списке "ИНФОРМАЦИЯ" есть три элемента (общий для всех страниц метод)
+    def should_be_information_list_has_three_elements(self):
+        button = self.find_elements(BasePageLocators.INFORMATION_LIST)
+        result = len(button) - 1
+        assert result == 3
+
+    # метод проверки, что в header присутствует ссылка на геолокацию
+    def should_be_geolocation_map(self):
+        map = self.find_element(BasePageLocators.GEOLOCATION_MAP)
+        result = map.text
+        assert result != ''
+
+    # метод проверки, что ссылка на геолокацию открывает окно геолокации
+    def the_link_geolocation_map_opens_window_with_geolocation_map(self):
+        link = self.find_element(BasePageLocators.GEOLOCATION_MAP)
+        link.click()
+        assert self.is_element_present(By.CSS_SELECTOR, "#ui-id-1"), "Window with geolocation map is not presented"
+
+    # метод проверки, что в header присутствует ссылка "новинки"
+    def should_be_novinki_link(self):
+        link = self.find_element(BasePageLocators.NOVINKI_LINK)
+        result = link.text
+        assert "Новинки" == result
+
+
+
 
 
 

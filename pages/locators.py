@@ -6,5 +6,5 @@ class BasePageLocators():
     BUTTON_PRISE_LIST = (By.CSS_SELECTOR, "#toppri")
     FORM_PRISE_LIST = (By.CSS_SELECTOR, ".ui-dialog")
     INFORMATION_LIST = (By.CSS_SELECTOR, "#text_links_3912 a")
-
-
+    GEOLOCATION_MAP = (By.CSS_SELECTOR, "#opener_geo_maps_location_dialog_3909")
+    NOVINKI_LINK = (By.CSS_SELECTOR, 'a[href="https://besttea.ru/noviepostupleniya/"]')

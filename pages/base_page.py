@@ -66,37 +66,54 @@ class BasePage():
 
     # метод проверки, что в header присутствует кнопка выпадающего списка "ИНФОРМАЦИЯ" (общий для всех страниц метод)
     def should_be_information_list(self):
-        button = self.find_element(BasePageLocators.INFORMATION_LIST)
+        button = self.find_element(BasePageLocators.InformationListLocators.INFORMATION_LIST)
         button.click()
         result = button.text
         assert "ИНФОРМАЦИЯ" == result
 
     # метод проверки, что в выпадающем списке "ИНФОРМАЦИЯ" есть три элемента (общий для всех страниц метод)
     def should_be_information_list_has_three_elements(self):
-        button = self.find_elements(BasePageLocators.INFORMATION_LIST)
+        button = self.find_elements(BasePageLocators.InformationListLocators.INFORMATION_LIST)
         result = len(button) - 1
         assert result == 3
 
-    # метод проверки, что в header присутствует ссылка на геолокацию
+    # метод проверки, что в header присутствует ссылка на геолокацию (общий для всех страниц метод)
     def should_be_geolocation_map(self):
         map = self.find_element(BasePageLocators.GEOLOCATION_MAP)
         result = map.text
         assert result != ''
 
-    # метод проверки, что ссылка на геолокацию открывает окно геолокации
+    # метод проверки, что ссылка на геолокацию открывает окно геолокации (общий для всех страниц метод)
     def the_link_geolocation_map_opens_window_with_geolocation_map(self):
         link = self.find_element(BasePageLocators.GEOLOCATION_MAP)
         link.click()
         assert self.is_element_present(By.CSS_SELECTOR, "#ui-id-1"), "Window with geolocation map is not presented"
 
-    # метод проверки, что в header присутствует ссылка "новинки"
+    # метод проверки, что в header присутствует ссылка "новинки" (общий для всех страниц метод)
     def should_be_novinki_link(self):
         link = self.find_element(BasePageLocators.NOVINKI_LINK)
         result = link.text
         assert "Новинки" == result
 
+    # метод проверки, что ссылка "новинки" открывает страницу с новыми поступлениями (общий для всех страниц метод)
+    def the_novinki_link_open_page_noviepostupleniya(self):
+        url = "https://besttea.ru/noviepostupleniya/"
+        link = self.find_element(BasePageLocators.NOVINKI_LINK)
+        link.click()
+        assert url == self.browser.current_url, "url do not match"
 
+    # метод проверки, что в header присутствует ссылка "Скидки" (общий для всех страниц метод)
+    def should_by_sale_link(self):
+        link = self.find_element(BasePageLocators.SALE_LINK)
+        result = link.text
+        assert "Скидки" == result
 
+    # метод проверки, что ссылка "Скидки" открывает соответствующую страницу (общий для всех страниц метод)
+    def the_sale_link_opens_the_corresponding_page(self):
+        url = "https://besttea.ru/sale/"
+        link = self.find_element(BasePageLocators.SALE_LINK)
+        link.click()
+        assert url == self.browser.current_url, "url do not match"
 
 
 

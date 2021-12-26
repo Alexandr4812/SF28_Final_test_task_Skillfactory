@@ -43,9 +43,22 @@ def test_EXP008_link_geolocation_map_opens_window_with_geolocation_map(browser):
     main_page.open()
     main_page.the_link_geolocation_map_opens_window_with_geolocation_map()
 
-
 def test_EXP009_guest_should_see_in_header_novinki_link(browser):
     main_page = MainPage(browser, url_main_page)
     main_page.open()
     main_page.should_be_novinki_link()
 
+def test_EXP010_novinki_link_open_page_noviepostupleniya(browser):
+    main_page = MainPage(browser, url_main_page)
+    main_page.open()
+    main_page.the_novinki_link_open_page_noviepostupleniya()
+
+def test_EXP011_guest_should_see_in_header_sale_link(browser):
+    main_page = MainPage(browser, url_main_page)
+    main_page.open()
+    main_page.should_by_sale_link()
+
+def test_EXP012_sale_link_open_page_noviepostupleniya(browser):
+    main_page = MainPage(browser, url_main_page)
+    main_page.open()
+    main_page.the_sale_link_opens_the_corresponding_page()

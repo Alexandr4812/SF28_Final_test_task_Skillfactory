@@ -11,4 +11,7 @@ class BasePageLocators():
 
     class InformationListLocators():
         INFORMATION_LIST = (By.CSS_SELECTOR, "#text_links_3912 a")
+        DOSTAVKA_LINK = (By.CSS_SELECTOR, "a[href='https://besttea.ru/info/dostavka/']")
+        OPLATA_LINK = (By.CSS_SELECTOR, "a[href='https://besttea.ru/info/oplata/']")
+        OBMEN_VOZVRAT_LINK = (By.CSS_SELECTOR, "a[href='https://besttea.ru/info/usloviya-vozvrata/']")
 

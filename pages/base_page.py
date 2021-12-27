@@ -29,7 +29,7 @@ class BasePage():
     def open(self):
         self.browser.get(self.url)
 
-    # метод is_element_presentв перехватывает исключение.
+    # метод is_element_present перехватывает исключение.
     # будет использоваться для проверки присутствия элемента на странице
     # В него будем передавать два аргумента: как искать (css, id, xpath и тд)
     # и собственно что искать (строку-селектор).
@@ -76,6 +76,37 @@ class BasePage():
         button = self.find_elements(BasePageLocators.InformationListLocators.INFORMATION_LIST)
         result = len(button) - 1
         assert result == 3
+
+    # метод проверки, что ссылка "Доставка" в выпадающем списке "ИНФОРМАЦИЯ"
+    # ведет на соответствующую страницу (общий для всех страниц метод)
+    def the_link_dostavka_opens_the_corresponding_page(self):
+        url = "https://besttea.ru/info/dostavka/"
+        link = self.find_element(BasePageLocators.InformationListLocators.INFORMATION_LIST)
+        link.click()
+        dostavka_link = self.find_element(BasePageLocators.InformationListLocators.DOSTAVKA_LINK)
+        dostavka_link.click()
+        assert url == self.browser.current_url, "url do not match"
+
+    # метод проверки, что ссылка "Оплата" в выпадающем списке "ИНФОРМАЦИЯ"
+    # ведет на соответствующую страницу (общий для всех страниц метод)
+    def the_link_oplata_opens_the_corresponding_page(self):
+        url = "https://besttea.ru/info/oplata/"
+        link = self.find_element(BasePageLocators.InformationListLocators.INFORMATION_LIST)
+        link.click()
+        oplata_link =self.find_element(BasePageLocators.InformationListLocators.OPLATA_LINK)
+        oplata_link.click()
+        assert url == self.browser.current_url, "url do not match"
+
+    # метод проверки, что ссылка "Обмен и возврат" в выпадающем списке "ИНФОРМАЦИЯ"
+    # ведет на соответствующую страницу (общий для всех страниц метод)
+    def the_link_obmen_vozvrat_opens_the_corresponding_page(self):
+        url = "https://besttea.ru/info/usloviya-vozvrata/"
+        link = self.find_element(BasePageLocators.InformationListLocators.INFORMATION_LIST)
+        link.click()
+        obmen_vozvrat_link = self.find_element(BasePageLocators.InformationListLocators.OBMEN_VOZVRAT_LINK)
+        obmen_vozvrat_link.click()
+        assert url == self.browser.current_url, "url do not match"
+
 
     # метод проверки, что в header присутствует ссылка на геолокацию (общий для всех страниц метод)
     def should_be_geolocation_map(self):

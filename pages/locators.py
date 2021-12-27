@@ -8,10 +8,10 @@ class BasePageLocators():
     GEOLOCATION_MAP = (By.CSS_SELECTOR, "#opener_geo_maps_location_dialog_3909")
     NOVINKI_LINK = (By.CSS_SELECTOR, 'a[href="https://besttea.ru/noviepostupleniya/"]')
     SALE_LINK = (By.CSS_SELECTOR, 'a[href="https://besttea.ru/sale/"]')
-
     class InformationListLocators():
         INFORMATION_LIST = (By.CSS_SELECTOR, "#text_links_3912 a")
         DOSTAVKA_LINK = (By.CSS_SELECTOR, "a[href='https://besttea.ru/info/dostavka/']")
         OPLATA_LINK = (By.CSS_SELECTOR, "a[href='https://besttea.ru/info/oplata/']")
         OBMEN_VOZVRAT_LINK = (By.CSS_SELECTOR, "a[href='https://besttea.ru/info/usloviya-vozvrata/']")
-
+    class OptovikamListLocators():
+        OPTOVIKAM_LIST = (By.CSS_SELECTOR, ".optovikampnkt bdi")

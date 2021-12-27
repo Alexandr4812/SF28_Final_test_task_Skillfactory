@@ -47,7 +47,7 @@ class TestInformationListFromMainPage():
         main_page.open()
         main_page.the_link_obmen_vozvrat_opens_the_corresponding_page()
 
-        # pytest - v - -tb = line - m information_list test_main_page.py
+        # pytest -v --tb=line -m information_list test_main_page.py
 
 def test_EXP010_guest_should_see_geolocation_map_link(browser):
     main_page = MainPage(browser, url_main_page)
@@ -78,3 +78,17 @@ def test_EXP015_sale_link_open_page_noviepostupleniya(browser):
     main_page = MainPage(browser, url_main_page)
     main_page.open()
     main_page.the_sale_link_opens_the_corresponding_page()
+
+@pytest.mark.optovikam_list
+class TestOptovikamListFromMainPage():
+    def test_EXP016_guest_should_see_in_header_optovikam_list(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.should_by_optovikam_list()
+
+    def test_EXP017_guest_should_see_in_optovikam_list_seven_elements(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.should_be_optovikam_list_has_seven_elements()
+
+        # pytest -v --tb=line -m optovikam_list test_main_page.py

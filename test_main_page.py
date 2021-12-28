@@ -85,10 +85,37 @@ class TestOptovikamListFromMainPage():
         main_page = MainPage(browser, url_main_page)
         main_page.open()
         main_page.should_by_optovikam_list()
-
     def test_EXP017_guest_should_see_in_optovikam_list_seven_elements(self, browser):
         main_page = MainPage(browser, url_main_page)
         main_page.open()
         main_page.should_be_optovikam_list_has_seven_elements()
+    def test_EXP018_the_link_chai_optom_opens_the_corresponding_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_link_chai_optom_opens_the_corresponding_page()
+    def test_EXP019_the_link_kofe_optom_opens_the_corresponding_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_link_kofe_optom_opens_the_corresponding_page()
+    def test_EXP020_the_link_posuda_optom_opens_the_corresponding_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_link_posuda_optom_opens_the_corresponding_page()
+    def test_EXP021_the_link_proizvodstvo_opens_the_corresponding_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_link_proizvodstvo_opens_the_corresponding_page()
+    def test_EXP022_the_link_chai_i_kofe_pod_stm_opens_the_corresponding_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_link_chai_i_kofe_pod_stm_opens_the_corresponding_page()
+    def test_EXP023_the_link_fasovka_sipuchih_produktov_opens_the_corresponding_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_link_fasovka_sipuchih_produktov_opens_the_corresponding_page()
+    def test_EXP024_the_link_sertifikaty_i_deklaracii_opens_the_corresponding_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_link_sertifikaty_i_deklaracii_opens_the_corresponding_page()
 
         # pytest -v --tb=line -m optovikam_list test_main_page.py

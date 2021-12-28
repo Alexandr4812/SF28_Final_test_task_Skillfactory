@@ -119,3 +119,13 @@ class TestOptovikamListFromMainPage():
         main_page.the_link_sertifikaty_i_deklaracii_opens_the_corresponding_page()
 
         # pytest -v --tb=line -m optovikam_list test_main_page.py
+
+def test_EXP025_guest_should_see_in_header_kontakty_link(browser):
+    main_page = MainPage(browser, url_main_page)
+    main_page.open()
+    main_page.should_by_Kontakty_link()
+
+def test_EXP026_the_link_kontakty_opens_the_corresponding_page(browser):
+    main_page = MainPage(browser, url_main_page)
+    main_page.open()
+    main_page.the_link_kontakty_opens_the_corresponding_page()

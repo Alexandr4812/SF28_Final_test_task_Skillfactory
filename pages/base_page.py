@@ -245,3 +245,18 @@ class BasePage():
         assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
         assert url == self.browser.current_url, "url do not match"
 
+    # EXP025 метод проверки, что в header присутствует ссылка "Контакты"
+    def should_by_Kontakty_link(self):
+        kontakty_link = self.find_element(BasePageLocators.KONTAKTY_LINK)
+        result = kontakty_link.text
+        assert result == "Контакты"
+
+    # EXP026 метод проверки, что ссылка "Контакты" ведет на соответствующую страницу
+    def the_link_kontakty_opens_the_corresponding_page(self):
+        url = "https://besttea.ru/contact/"
+        kontakty_link = self.find_element(BasePageLocators.KONTAKTY_LINK)
+        kontakty_link.click()
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
+        assert url == self.browser.current_url, "url do not match"
+
+

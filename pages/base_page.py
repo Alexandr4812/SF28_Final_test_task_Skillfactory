@@ -268,8 +268,8 @@ class BasePage():
         assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
         assert url == self.browser.current_url, "url do not match"
 
-    # EXP027 метод проверки, что на иконке "список отложенных товаров" не присутсвует цифр
-    # количества отложенных товаров
+    # EXP027 метод проверки, что на иконке "список отложенных товаров" не присутсвует цифра
+    # обозначающая количество отложенных товаров
     def not_should_by_number_in_wish_list_if_not_adding_product(self):
         assert self.is_not_element_present(*BasePageLocators.WishList.WISH_LIST_LINK_COUNT), \
                 "there is a value with the amount of added product"

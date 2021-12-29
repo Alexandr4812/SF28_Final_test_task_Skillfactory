@@ -3,8 +3,6 @@ from selenium.webdriver.common.by import By
 class BasePageLocators():
     TY_EXCEPTION = (By.CSS_SELECTOR, ".ty-exception")
     #################################################
-    TEA_SHOP_PHONE = (By.CSS_SELECTOR, "#topteln")
-    WHOLESALES_DEPERTAMENT_PHONE = (By.CSS_SELECTOR, ".opttopteln")
     BUTTON_PRISE_LIST = (By.CSS_SELECTOR, "#toppri")
     FORM_PRISE_LIST = (By.CSS_SELECTOR, ".ui-dialog")
     GEOLOCATION_MAP = (By.CSS_SELECTOR, "#opener_geo_maps_location_dialog_3909")

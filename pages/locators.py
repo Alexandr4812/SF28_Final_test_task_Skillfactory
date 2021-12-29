@@ -25,3 +25,11 @@ class BasePageLocators():
         CHAI_I_KOFE_POD_STM_LINK = (By.CSS_SELECTOR, 'a[href="/info/opt/stm-chay"]')
         FASOVKA_PRODUKTOV = (By.CSS_SELECTOR, 'a[href="https://besttea.ru/info/opt/uslugi-fasovki-i-upakovki-sypuchih-produktov"]')
         SERTIFIKATY_LINK = (By.CSS_SELECTOR, 'a[href="/info/sertifikatyi"]')
+    class WishList():
+        WISH_LIST_LINK = (By.CSS_SELECTOR, "#abt__ut2_wishlist_count")
+        WISH_LIST_LINK_COUNT = (By.CSS_SELECTOR, "#abt__ut2_wishlist_count span")
+
+class MainPageLocators():
+    class Bestsellers():
+        PRODUCT_5 = (By.NAME, "product_form_5240003024")
+        ADD_WISH_LIST_PRODUCT_5 = (By.CSS_SELECTOR, "#button_wishlist_5240003024")

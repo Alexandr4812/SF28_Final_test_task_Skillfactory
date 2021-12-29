@@ -1,8 +1,10 @@
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
-from .locators import BasePageLocators
+from .locators import BasePageLocators, MainPageLocators
 from selenium.webdriver.common.by import By
+
 import pytest
 import time
 
@@ -28,6 +30,8 @@ class BasePage():
     # метод open должен открывать нужную страницу в браузере, используя метод get()
     def open(self):
         self.browser.get(self.url)
+
+    # метод move_cursor передвигает курсор мыши на обьект
 
     # метод is_element_present перехватывает исключение.
     # будет использоваться для проверки присутствия элемента на странице
@@ -95,6 +99,7 @@ class BasePage():
         link.click()
         dostavka_link = self.find_element(BasePageLocators.InformationListLocators.DOSTAVKA_LINK)
         dostavka_link.click()
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
         assert url == self.browser.current_url, "url do not match"
 
     # EXP008 метод проверки, что ссылка "Оплата" в выпадающем списке "ИНФОРМАЦИЯ"
@@ -105,6 +110,7 @@ class BasePage():
         link.click()
         oplata_link =self.find_element(BasePageLocators.InformationListLocators.OPLATA_LINK)
         oplata_link.click()
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
         assert url == self.browser.current_url, "url do not match"
 
     # EXP009 метод проверки, что ссылка "Обмен и возврат" в выпадающем списке "ИНФОРМАЦИЯ"
@@ -115,6 +121,7 @@ class BasePage():
         link.click()
         obmen_vozvrat_link = self.find_element(BasePageLocators.InformationListLocators.OBMEN_VOZVRAT_LINK)
         obmen_vozvrat_link.click()
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
         assert url == self.browser.current_url, "url do not match"
 
     # EXP010 метод проверки, что в header присутствует ссылка на геолокацию
@@ -140,6 +147,7 @@ class BasePage():
         url = "https://besttea.ru/noviepostupleniya/"
         link = self.find_element(BasePageLocators.NOVINKI_LINK)
         link.click()
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
         assert url == self.browser.current_url, "url do not match"
 
     # EXP014 метод проверки, что в header присутствует ссылка "Скидки"
@@ -153,6 +161,7 @@ class BasePage():
         url = "https://besttea.ru/sale/"
         link = self.find_element(BasePageLocators.SALE_LINK)
         link.click()
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
         assert url == self.browser.current_url, "url do not match"
 
     # EXP016 метод проверки, что в header присутствует кнопка выпадающего списка "Оптовикам"
@@ -258,5 +267,28 @@ class BasePage():
         kontakty_link.click()
         assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
         assert url == self.browser.current_url, "url do not match"
+
+    # EXP027 метод проверки, что в header присутствует ссылка "Посмотреть список отложенных товаров"
+    def should_by_wish_list_link(self):
+        assert self.is_element_present(*BasePageLocators.WishList.WISH_LIST_LINK), "Wish list link is not presented"
+
+    # EXP028 метод проверки, что ссылка "Посмотреть список отложенных товаров" ведет на соответствующую страницу
+    def the_link_wish_list_opens_the_corresponding_page(self):
+        url = "https://besttea.ru/wishlist/"
+        wish_list_link = self.find_element(BasePageLocators.WishList.WISH_LIST_LINK)
+        wish_list_link.click()
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
+        assert url == self.browser.current_url, "url do not match"
+
+    # EXP029 метод проверки, что на иконке "список отложенных товаров" не присутсвует цифр
+    # количества отложенных товаров
+    def not_should_by_number_in_wish_list_if_not_adding_product(self):
+        assert self.is_not_element_present(*BasePageLocators.WishList.WISH_LIST_LINK_COUNT), \
+                "there is a value with the amount of added product"
+
+
+
+
+
 
 

@@ -129,3 +129,24 @@ def test_EXP026_the_link_kontakty_opens_the_corresponding_page(browser):
     main_page = MainPage(browser, url_main_page)
     main_page.open()
     main_page.the_link_kontakty_opens_the_corresponding_page()
+
+@pytest.mark.wish_list
+class TestWishListMainPage():
+    def test_EXP027_guest_should_see_wish_list_link(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.should_by_wish_list_link()
+    def test_EXP028_the_link_wish_list_opens_the_corresponding_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_link_wish_list_opens_the_corresponding_page()
+    def test_EXP029_guest_not_should_see_in_wish_list_link_number(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.not_should_by_number_in_wish_list_if_not_adding_product()
+    def test_EXP030_guest_should_see_in_wish_list_link_number_one(self,browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.should_by_number_one_in_wish_list_when_adding_product()
+
+        # pytest -v --tb=line -m wish_list test_main_page.py

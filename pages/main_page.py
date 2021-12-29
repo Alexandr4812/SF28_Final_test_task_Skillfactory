@@ -7,7 +7,7 @@ url_main_page = "https://besttea.ru/"
 
 class MainPage(BasePage):
 
-    # EXP030 метод проверки, что при добавление одного товара в "список отложенных товаров"
+    # EXP028 метод проверки, что при добавление одного товара в "список отложенных товаров"
     # на иконке "списка отложенных товаров" появляется цифра 1
     def should_by_number_one_in_wish_list_when_adding_product(self):
         action = ActionChains(self.browser)

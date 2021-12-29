@@ -26,6 +26,10 @@ class BasePageLocators():
     class WishList():
         WISH_LIST_LINK = (By.CSS_SELECTOR, "#abt__ut2_wishlist_count")
         WISH_LIST_LINK_COUNT = (By.CSS_SELECTOR, "#abt__ut2_wishlist_count span")
+    class KatalogTovarovListLocators():
+        KATALOG_TOVAROV_LIST_BUTTON = (By.CSS_SELECTOR, "#sw_dropdown_3918")
+        KATALOG_TOVAROV_LIST = (By.CSS_SELECTOR, ".ty-menu__item.cm-menu-item-responsive.first-lvl")
+
 
 class MainPageLocators():
     class Bestsellers():

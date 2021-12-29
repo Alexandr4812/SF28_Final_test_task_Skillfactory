@@ -272,6 +272,19 @@ class BasePage():
         assert self.is_not_element_present(*BasePageLocators.WishList.WISH_LIST_LINK_COUNT), \
                 "there is a value with the amount of added product"
 
+    # EXP029 метод проверки, что в header присутствует кнопка выпадающего списка "Каталог товаров"
+    def should_by_katalog_tovarov_list(self):
+        katalog_link = self.find_element(BasePageLocators.KatalogTovarovListLocators.KATALOG_TOVAROV_LIST_BUTTON)
+        result = katalog_link.text
+        assert "Каталог товаров" == result
+
+    # EXP030 метод проверки, что в выпадающем списке "Каталог товаров" есть шесть элементов
+    def should_be_in_katalog_tovarov_list_six_elements(self):
+        katalog_list_button = self.find_element(BasePageLocators.KatalogTovarovListLocators.KATALOG_TOVAROV_LIST_BUTTON)
+        katalog_list_button.click()
+        katalog_list = self.find_elements(BasePageLocators.KatalogTovarovListLocators.KATALOG_TOVAROV_LIST)
+        result = len(katalog_list)
+        assert result == 6
 
 
 

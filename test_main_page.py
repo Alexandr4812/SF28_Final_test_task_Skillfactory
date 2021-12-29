@@ -140,3 +140,17 @@ class TestWishListMainPage():
         main_page.should_by_number_one_in_wish_list_when_adding_product()
 
         # pytest -v --tb=line -m wish_list test_main_page.py
+
+@pytest.mark.katalog_tovarov_list
+class TestKatalogTovarovListMainPage():
+    def test_EXP029_guest_should_see_katalog_tovarov_list_button(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.should_by_katalog_tovarov_list()
+    def test_EXP030_guest_should_see_in_katalog_tovarov_list_six_links(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.should_be_in_katalog_tovarov_list_six_elements()
+
+
+        # pytest -v --tb=line -m katalog_tovarov_list test_main_page.py

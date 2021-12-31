@@ -360,3 +360,18 @@ class BasePage():
         result = search_text.text
         assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
         assert "Результаты поиска" == result
+
+    # EXP039 метод проверки, что присутствует выпадающий список "Аккаунт"
+    def should_be_account_list(self):
+        account_button = self.find_element(BasePageLocators.AccountLokators.ACCOUNT_BUTTON)
+        result = account_button.text
+        assert 'Аккаунт' == result
+
+    # EXP040 метод проверки, что в выпадающем списке "Аккаунт" присутствует три ссылки
+    def should_be_in_account_list_three_links(self):
+        account_button = self.find_element(BasePageLocators.AccountLokators.ACCOUNT_BUTTON)
+        account_button.click()
+        account_list = self.find_elements(BasePageLocators.AccountLokators.ACCOUN_LIST)
+        result = len(account_list)
+        assert result == 3
+

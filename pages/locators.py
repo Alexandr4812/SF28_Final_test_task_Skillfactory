@@ -38,6 +38,9 @@ class BasePageLocators():
     class SearchLokators():
         SERCH_INPUT = (By.CSS_SELECTOR, '#search_input')
         BUTTON_SERCH = (By.CSS_SELECTOR, '.ty-icon-search')
+    class AccountLokators():
+        ACCOUNT_BUTTON = (By.CSS_SELECTOR, '#account_info_3921')
+        ACCOUN_LIST = (By.CSS_SELECTOR, '#dropdown_520 li')
 
 
 class MainPageLocators():

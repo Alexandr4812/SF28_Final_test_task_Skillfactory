@@ -190,3 +190,17 @@ class TestSerchInputMainPage():
         main_page.the_search_icon_opens_the_serch_page()
 
         # pytest -v --tb=line -m search_input test_main_page.py
+
+@pytest.mark.account_list
+class TestAccountList():
+    def test_EXP039_guest_should_see_account_list_button(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.should_be_account_list()
+    def test_EXP040_should_be_in_account_list_three_links(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.should_be_in_account_list_three_links()
+
+        # pytest -v --tb=line -m account_list test_main_page.py
+

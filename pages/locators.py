@@ -29,9 +29,21 @@ class BasePageLocators():
     class KatalogTovarovListLocators():
         KATALOG_TOVAROV_LIST_BUTTON = (By.CSS_SELECTOR, "#sw_dropdown_3918")
         KATALOG_TOVAROV_LIST = (By.CSS_SELECTOR, ".ty-menu__item.cm-menu-item-responsive.first-lvl")
+        CHAI_LINK = (By.CSS_SELECTOR, 'a[href="/elitniy-chay"]')
+        KOFE_LINK = (By.CSS_SELECTOR, 'a[href="/zernovoi-kofe"]')
+        MATE_LINK = (By.CSS_SELECTOR, 'a[href="/mate-i-prinadlejnosti"]')
+        SLADOSTI_LINK = (By.CSS_SELECTOR, 'a[href="/sladosti"]')
+        POSUDA_LINK = (By.CSS_SELECTOR, 'a[href="/posuda-i-prinadlezhnosti/"]')
+        UPAKOVKA_LINK = (By.CSS_SELECTOR, 'a[href="https://besttea.ru/torgovoe-oborudovanie/"]')
+    class SearchLokators():
+        SERCH_INPUT = (By.CSS_SELECTOR, '#search_input')
+        BUTTON_SERCH = (By.CSS_SELECTOR, '.ty-icon-search')
 
 
 class MainPageLocators():
     class Bestsellers():
         PRODUCT_5 = (By.NAME, "product_form_5240003024")
         ADD_WISH_LIST_PRODUCT_5 = (By.CSS_SELECTOR, "#button_wishlist_5240003024")
+
+class SearchPageLocators():
+    SEARCH_PAGE_TEXT = (By.CSS_SELECTOR, '.span12.main-content-grid span')

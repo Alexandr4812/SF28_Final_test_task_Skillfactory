@@ -151,6 +151,42 @@ class TestKatalogTovarovListMainPage():
         main_page = MainPage(browser, url_main_page)
         main_page.open()
         main_page.should_be_in_katalog_tovarov_list_six_elements()
-
+    def test_EXP031_the_link_chai_opens_the_corresponding_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_link_chai_opens_the_corresponding_page()
+    def test_EXP032_the_link_kofe_opens_the_corresponding_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_link_kofe_opens_the_corresponding_page()
+    def test_EXP033_the_link_mate_opens_the_corresponding_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_link_mate_opens_the_corresponding_page()
+    def test_EXP034_the_link_sladosti_opens_the_corresponding_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_link_sladosti_opens_the_corresponding_page()
+    def test_EXP035_the_link_posuda_opens_the_corresponding_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_link_posuda_opens_the_corresponding_page()
+    def test_EXP036_the_link_upakovka_opens_the_corresponding_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_link_upakovka_opens_the_corresponding_page()
 
         # pytest -v --tb=line -m katalog_tovarov_list test_main_page.py
+
+@pytest.mark.search_input
+class TestSerchInputMainPage():
+    def test_EXP037_guest_should_see_search_input(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.should_be_search_input()
+    def test_EXP038_the_serch_icon_opens_the_serch_page_when_you_press(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.the_search_icon_opens_the_serch_page()
+
+        # pytest -v --tb=line -m search_input test_main_page.py

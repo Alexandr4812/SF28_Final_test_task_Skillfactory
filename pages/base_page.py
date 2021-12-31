@@ -2,7 +2,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
-from .locators import BasePageLocators, MainPageLocators
+from .locators import BasePageLocators, MainPageLocators, SearchPageLocators
 from selenium.webdriver.common.by import By
 
 import pytest
@@ -286,8 +286,77 @@ class BasePage():
         result = len(katalog_list)
         assert result == 6
 
+    # EXP031 метод проверки, что ссылка "Чай" ведет на соответствующую страницу
+    def the_link_chai_opens_the_corresponding_page(self):
+        url = 'https://besttea.ru/elitniy-chay/'
+        katalog_list_button = self.find_element(BasePageLocators.KatalogTovarovListLocators.KATALOG_TOVAROV_LIST_BUTTON)
+        katalog_list_button.click()
+        chai_link = self.find_element(BasePageLocators.KatalogTovarovListLocators.CHAI_LINK)
+        chai_link.click()
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
+        assert url == self.browser.current_url, "url do not match"
 
+    # EXP032 метод проверки, что ссылка "Кофе" ведет на соответствующую страницу
+    def the_link_kofe_opens_the_corresponding_page(self):
+        url = 'https://besttea.ru/zernovoi-kofe/'
+        katalog_list_button = self.find_element(BasePageLocators.KatalogTovarovListLocators.KATALOG_TOVAROV_LIST_BUTTON)
+        katalog_list_button.click()
+        kofe_link = self.find_element(BasePageLocators.KatalogTovarovListLocators.KOFE_LINK)
+        kofe_link.click()
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
+        assert url == self.browser.current_url, "url do not match"
 
+    # EXP033 метод проверки, что ссылка "Мате" ведет на соответствующую страницу
+    def the_link_mate_opens_the_corresponding_page(self):
+        url = 'https://besttea.ru/mate-i-prinadlejnosti/'
+        katalog_list_button = self.find_element(BasePageLocators.KatalogTovarovListLocators.KATALOG_TOVAROV_LIST_BUTTON)
+        katalog_list_button.click()
+        mate_link = self.find_element(BasePageLocators.KatalogTovarovListLocators.MATE_LINK)
+        mate_link.click()
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
+        assert url == self.browser.current_url, "url do not match"
 
+    # EXP034 метод проверки, что ссылка "Сладости" ведет на соответствующую страницу
+    def the_link_sladosti_opens_the_corresponding_page(self):
+        url = 'https://besttea.ru/sladosti/'
+        katalog_list_button = self.find_element(BasePageLocators.KatalogTovarovListLocators.KATALOG_TOVAROV_LIST_BUTTON)
+        katalog_list_button.click()
+        sladosti_link = self.find_element(BasePageLocators.KatalogTovarovListLocators.SLADOSTI_LINK)
+        sladosti_link.click()
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
+        assert url == self.browser.current_url, "url do not match"
 
+    # EXP035 метод проверки, что ссылка "Посуда и аксессуары" ведет на соответствующую страницу
+    def the_link_posuda_opens_the_corresponding_page(self):
+        url = 'https://besttea.ru/posuda-i-prinadlezhnosti/'
+        katalog_list_button = self.find_element(BasePageLocators.KatalogTovarovListLocators.KATALOG_TOVAROV_LIST_BUTTON)
+        katalog_list_button.click()
+        posuda_link = self.find_element(BasePageLocators.KatalogTovarovListLocators.POSUDA_LINK)
+        posuda_link.click()
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
+        assert url == self.browser.current_url, "url do not match"
 
+    # EXP036 метод проверки, что ссылка "Упаковка" ведет на соответствующую страницу
+    def the_link_upakovka_opens_the_corresponding_page(self):
+        url = 'https://besttea.ru/torgovoe-oborudovanie/'
+        katalog_list_button = self.find_element(BasePageLocators.KatalogTovarovListLocators.KATALOG_TOVAROV_LIST_BUTTON)
+        katalog_list_button.click()
+        upakovka_list = self.find_element(BasePageLocators.KatalogTovarovListLocators.UPAKOVKA_LINK)
+        upakovka_list.click()
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
+        assert url == self.browser.current_url, "url do not match"
+
+    # EXP037 метод проверки, что присутствует поисковая строка
+    def should_be_search_input(self):
+        assert self.is_element_present(*BasePageLocators.SearchLokators.SERCH_INPUT), "Wish serch input is not presented"
+
+    # EXP038 метод проверки, что при нажатии на иконку поиск происходит переход
+    # на страницу поиска
+    def the_search_icon_opens_the_serch_page(self):
+        url = 'https://besttea.ru/search/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=&security_hash=e88f11571835a13bf19ece501d130d66'
+        search_button = self.find_element(BasePageLocators.SearchLokators.BUTTON_SERCH)
+        search_button.click()
+        search_text = self.find_element(SearchPageLocators.SEARCH_PAGE_TEXT)
+        result = search_text.text
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
+        assert "Результаты поиска" == result

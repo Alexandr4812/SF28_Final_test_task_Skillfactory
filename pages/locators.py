@@ -41,6 +41,8 @@ class BasePageLocators():
     class AccountLokators():
         ACCOUNT_BUTTON = (By.CSS_SELECTOR, '#account_info_3921')
         ACCOUN_LIST = (By.CSS_SELECTOR, '#dropdown_520 li')
+        LOGIN_BUTTON = (By.CSS_SELECTOR, 'a[href="https://besttea.ru/login/?return_url=index.php"]')
+        REGISTRATION_BUTTON = (By.CSS_SELECTOR, 'a[href="https://besttea.ru/profiles-add/"]')
 
 
 class MainPageLocators():

@@ -375,3 +375,19 @@ class BasePage():
         result = len(account_list)
         assert result == 3
 
+    # EXP041 метод проверки, что в выпадающем списке "Аккаунт" присутствует кнопка "Войти"
+    def should_be_in_account_list_login_button(self):
+        account_button = self.find_element(BasePageLocators.AccountLokators.ACCOUNT_BUTTON)
+        account_button.click()
+        login_button = self.find_element(BasePageLocators.AccountLokators.LOGIN_BUTTON)
+        result = login_button.text
+        assert 'Войти' == result
+
+    # EXP042 метод проверки, что в выпадающем списке "Аккаунт" присутствует кнопка "Регистрация"
+    def should_be_in_account_list_registration_button(self):
+        account_button = self.find_element(BasePageLocators.AccountLokators.ACCOUNT_BUTTON)
+        account_button.click()
+        registration_button = self.find_element(BasePageLocators.AccountLokators.REGISTRATION_BUTTON)
+        result = registration_button.text
+        assert 'Регистрация' == result
+

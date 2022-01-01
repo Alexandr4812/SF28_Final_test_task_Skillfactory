@@ -184,7 +184,7 @@ class TestSerchInputMainPage():
         main_page = MainPage(browser, url_main_page)
         main_page.open()
         main_page.should_be_search_input()
-    def test_EXP038_the_serch_icon_opens_the_serch_page_when_you_press(self, browser):
+    def test_EXP038_the_search_icon_opens_the_search_page_when_you_press(self, browser):
         main_page = MainPage(browser, url_main_page)
         main_page.open()
         main_page.the_search_icon_opens_the_serch_page()
@@ -201,6 +201,14 @@ class TestAccountList():
         main_page = MainPage(browser, url_main_page)
         main_page.open()
         main_page.should_be_in_account_list_three_links()
+    def test_EXP041_guest_should_see_in_account_list_login_button(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.should_be_in_account_list_login_button()
+    def test_EXP042_guest_should_see_in_account_list_registration_button(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.should_be_in_account_list_registration_button()
 
         # pytest -v --tb=line -m account_list test_main_page.py
 

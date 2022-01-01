@@ -1,6 +1,6 @@
 from .base_page import BasePage
 from selenium.webdriver.common.action_chains import ActionChains
-from .locators import BasePageLocators, MainPageLocators
+from .locators import BasePageLocators, MainPageLocators, SearchPageLocators
 import time
 
 url_main_page = "https://besttea.ru/"

@@ -43,6 +43,9 @@ class BasePageLocators():
         ACCOUN_LIST = (By.CSS_SELECTOR, '#dropdown_520 li')
         LOGIN_BUTTON = (By.CSS_SELECTOR, 'a[href="https://besttea.ru/login/?return_url=index.php"]')
         REGISTRATION_BUTTON = (By.CSS_SELECTOR, 'a[href="https://besttea.ru/profiles-add/"]')
+    class KorzinaLokators():
+        KORZINA_BUTTON = (By.CSS_SELECTOR, '#cart_status_3920')
+        KORZINA_LIST = (By.CSS_SELECTOR, '#dropdown_3920')
 
 
 class MainPageLocators():
@@ -52,3 +55,7 @@ class MainPageLocators():
 
 class SearchPageLocators():
     SEARCH_PAGE_TEXT = (By.CSS_SELECTOR, '.span12.main-content-grid span')
+    PRODUCT_LIST = (By.CSS_SELECTOR, '#pagination_contents')
+
+class LoginDialogBoxPageLocators():
+    LOGIN_DIALOG_BOX = (By.CSS_SELECTOR, '#ui-id-1')

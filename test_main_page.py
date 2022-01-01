@@ -209,6 +209,25 @@ class TestAccountList():
         main_page = MainPage(browser, url_main_page)
         main_page.open()
         main_page.should_be_in_account_list_registration_button()
+    def test_EXP043_button_login_in_account_list_opens_login_dialog_box(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.button_login_in_account_list_opens_login_dialog_box()
+    def test_EXP044_button_registration_in_account_list_opens_registration_page(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.button_registration_in_account_list_opens_registration_page()
 
         # pytest -v --tb=line -m account_list test_main_page.py
 
+@pytest.mark.korzina_list
+class TestKorzinaList():
+    def test_EXP045_guest_should_see_korzina_list_button(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.should_be_korzina_list()
+    def test_EXP046_guest_should_see_in_korzina_list_text_korzina_pusta(self, browser):
+        main_page = MainPage(browser, url_main_page)
+        main_page.open()
+        main_page.should_be_in_korzina_list_text_korzina_pusta()
+        # pytest -v --tb=line -m korzina_list test_main_page.py

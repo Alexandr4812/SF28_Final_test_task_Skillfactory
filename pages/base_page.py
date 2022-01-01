@@ -2,8 +2,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
-from .locators import BasePageLocators, MainPageLocators, SearchPageLocators
+from .locators import BasePageLocators, MainPageLocators, SearchPageLocators, LoginDialogBoxPageLocators
 from selenium.webdriver.common.by import By
+
+
 
 import pytest
 import time
@@ -390,4 +392,42 @@ class BasePage():
         registration_button = self.find_element(BasePageLocators.AccountLokators.REGISTRATION_BUTTON)
         result = registration_button.text
         assert 'Регистрация' == result
+
+    # EXP043 метод проверки, что в выпадающем списке "Аккаунт" кнопка "Войти"
+    # открывает форму авторизации
+    def button_login_in_account_list_opens_login_dialog_box(self):
+        account_button = self.find_element(BasePageLocators.AccountLokators.ACCOUNT_BUTTON)
+        account_button.click()
+        login_button = self.find_element(BasePageLocators.AccountLokators.LOGIN_BUTTON)
+        login_button.click()
+        login_dialog_box = self.find_element(LoginDialogBoxPageLocators.LOGIN_DIALOG_BOX)
+        result = login_dialog_box.text
+        assert 'Войти' == result
+
+    # EXP044 метод проверки, что в выпадающем списке "Аккаунт" кнопка "Регистрация"
+    # открывает страницу регистрации
+    def button_registration_in_account_list_opens_registration_page(self):
+        url = 'https://besttea.ru/profiles-add/'
+        account_button = self.find_element(BasePageLocators.AccountLokators.ACCOUNT_BUTTON)
+        account_button.click()
+        registration_button = self.find_element(BasePageLocators.AccountLokators.REGISTRATION_BUTTON)
+        registration_button.click()
+        assert self.is_not_element_present(*BasePageLocators.TY_EXCEPTION), "404 Error. Page not found"
+        assert url == self.browser.current_url, "url do not match"
+
+    # EXP0045 метод проверки, что присутствует выпадающий список "Корзина"
+    def should_be_korzina_list(self):
+        korzina_button = self.find_element(BasePageLocators.KorzinaLokators.KORZINA_BUTTON)
+        korzina_text = korzina_button.text
+        result = korzina_text.split()
+        assert result[1] == 'Корзина'
+
+    # EXP0046 метод проверки, что в выпадающем списке "Корзина" присутствует текст "Корзина пуста"
+    def should_be_in_korzina_list_text_korzina_pusta(self):
+        korzina_button = self.find_element(BasePageLocators.KorzinaLokators.KORZINA_BUTTON)
+        korzina_button.click()
+        korzina_list = self.find_element(BasePageLocators.KorzinaLokators.KORZINA_LIST)
+        result = korzina_list.text
+        assert  result == 'Корзина пуста'
+
 

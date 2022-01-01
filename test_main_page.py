@@ -230,4 +230,5 @@ class TestKorzinaList():
         main_page = MainPage(browser, url_main_page)
         main_page.open()
         main_page.should_be_in_korzina_list_text_korzina_pusta()
+
         # pytest -v --tb=line -m korzina_list test_main_page.py

@@ -56,6 +56,7 @@ class MainPageLocators():
 class SearchPageLocators():
     SEARCH_PAGE_TEXT = (By.CSS_SELECTOR, '.span12.main-content-grid span')
     PRODUCT_LIST = (By.CSS_SELECTOR, '#pagination_contents')
+    NAYDENO_TOVAROV = (By.CSS_SELECTOR, '#products_search_total_found_11')
 
 class LoginDialogBoxPageLocators():
     LOGIN_DIALOG_BOX = (By.CSS_SELECTOR, '#ui-id-1')

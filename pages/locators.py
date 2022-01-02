@@ -48,6 +48,7 @@ class BasePageLocators():
         KORZINA_LIST = (By.CSS_SELECTOR, '#dropdown_3920')
         KORZINA_LIST_PRODUCT = (By.CSS_SELECTOR, '.ty-cart-items__list-item-desc')
         CART_STATUS = (By.CSS_SELECTOR, '.ty-minicart-count')
+        CART_BUTTON = (By.LINK_TEXT, 'Корзина')
 
 
 class MainPageLocators():
@@ -63,6 +64,9 @@ class SearchPageLocators():
     NAYDENO_TOVAROV = (By.CSS_SELECTOR, '#products_search_total_found_11')
     COLUMN_DISPLAY_BUTTON = (By.CSS_SELECTOR, '.ty-icon-products-without-options')
     BUY_BUTTON = (By.CSS_SELECTOR, '#button_cart_6564')
+
+class CartPageLocators():
+    CART_ITEMS = (By.CSS_SELECTOR, '#cart_items')
 
 class LoginDialogBoxPageLocators():
     LOGIN_DIALOG_BOX = (By.CSS_SELECTOR, '#ui-id-1')

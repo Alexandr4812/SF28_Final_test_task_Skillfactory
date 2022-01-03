@@ -1,8 +1,6 @@
 # pytest -v --tb=line test_cart_page.py
 
 from .pages.cart_page import CartPage, url_cart_page
-from .pages.base_page import BasePage
-import pytest
 
 # Обозначение EXP001... - номера тестов в тест-кейсах.
 

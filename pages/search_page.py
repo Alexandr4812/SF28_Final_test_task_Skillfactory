@@ -1,7 +1,6 @@
 from .base_page import BasePage
-from .locators import BasePageLocators, MainPageLocators, SearchPageLocators
+from .locators import BasePageLocators, SearchPageLocators
 import time
-
 
 url_search_page = 'https://besttea.ru/search/'
 

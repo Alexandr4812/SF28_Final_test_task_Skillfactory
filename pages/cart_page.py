@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import BasePageLocators, MainPageLocators, SearchPageLocators, CartPageLocators
+from .locators import BasePageLocators, SearchPageLocators, CartPageLocators
 import time
 
 url_cart_page = 'https://besttea.ru/cart/'

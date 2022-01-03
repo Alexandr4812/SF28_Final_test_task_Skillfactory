@@ -1,14 +1,9 @@
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from .locators import BasePageLocators, MainPageLocators, SearchPageLocators, LoginDialogBoxPageLocators
 from selenium.webdriver.common.by import By
 
-
-
-import pytest
-import time
 
 # создаем конструктор, который принимает browser — экземпляр webdriver.
 # Указываем url, который будет использоваться для открытия страницы.
@@ -16,7 +11,7 @@ class BasePage():
     def __init__(self, browser, url, timeout=5):
         self.browser = browser
         self.url = url
-        # команда для неявного ожидания со значением по умолчанию в 5:
+        # команда для неявного ожидания со значением по умолчанию в 5c:
         self.browser.implicitly_wait(timeout)
 
     # создаем метод find_element (ищет один элемент и возвращает его)
@@ -35,8 +30,7 @@ class BasePage():
 
     # метод is_element_present перехватывает исключение.
     # будет использоваться для проверки присутствия элемента на странице
-    # В него будем передавать два аргумента: как искать (css, id, xpath и тд)
-    # и собственно что искать (строку-селектор).
+    # В него будем передавать два аргумента: как искать и собственно что искать.
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)
@@ -58,6 +52,7 @@ class BasePage():
         return symbols
 
 ######################## ДАЛЕЕ ИДУТ ОБЩИЕ ДЛЯ ВСЕХ СТРАНИЦ МЕТОДЫ ПРОВЕРОК #############################
+    # Обозначение EXP001... - это номера тестов в тест-кейсах
 
     # EXP001 метод проверки что в header присутствует кнопка прайс-лист
     def should_be_button_price_list(self):

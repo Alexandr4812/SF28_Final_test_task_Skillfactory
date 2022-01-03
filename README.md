@@ -15,6 +15,7 @@ ________________________________________________________________________________
 6. В корне проекта в файле **pytest.ini** зарегистрированны метки маркеровок тестов.
 7. В корне проекта в файле **requirements.py** описаны используемые библиотеки.
 8. В корне проекта в файлах **test_cart_page.py, test_main_page.py, test_search_page.py** находятся тесты.
-Все тесты помечены номером который совпадает с номером тест-кейса в файле: https://docs.google.com/spreadsheets/d/1ivsgIKMrdE2ECkFyFxpjPVEXgecPAIRF6Vv8-AXlkj4/edit?usp=sharing 
+Все тесты помечены номером который совпадает с номером тест-кейса в файле: https://docs.google.com/spreadsheets/d/1ivsgIKMrdE2ECkFyFxpjPVEXgecPAIRF6Vv8-AXlkj4/edit?usp=sharing
+Во всех файлах с тестами находятся закомментированные команды для запуска тестов из командной строки (#  pytest -v --tb=line test_main_page.py)
 
 

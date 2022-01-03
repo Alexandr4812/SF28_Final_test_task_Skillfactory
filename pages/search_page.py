@@ -73,7 +73,7 @@ class SearchPage(BasePage):
         display_button.click()
         buy_button = self.find_element(SearchPageLocators.BUY_BUTTON)
         buy_button.click()
-        time.sleep(5)
+        time.sleep(7)
         cart_status = self.find_element(BasePageLocators.KorzinaLokators.CART_STATUS)
         result = cart_status.text
         assert result == '1'
@@ -89,7 +89,7 @@ class SearchPage(BasePage):
         display_button.click()
         buy_button = self.find_element(SearchPageLocators.BUY_BUTTON)
         buy_button.click()
-        time.sleep(5)
+        time.sleep(7)
         korzina_button = self.find_element(BasePageLocators.KorzinaLokators.KORZINA_BUTTON)
         korzina_button.click()
         korzina_list_product = self.find_elements(BasePageLocators.KorzinaLokators.KORZINA_LIST_PRODUCT)

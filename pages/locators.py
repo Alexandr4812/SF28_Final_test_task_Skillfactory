@@ -67,6 +67,8 @@ class SearchPageLocators():
 
 class CartPageLocators():
     CART_ITEMS = (By.CSS_SELECTOR, '#cart_items')
+    CHECKOUT_BUTTON = (By.CSS_SELECTOR, '.ty-float-right.ty-cart-content__right-buttons')
+    CLEAR_CART_BUTTON = (By.LINK_TEXT, 'Очистить корзину')
 
 class LoginDialogBoxPageLocators():
     LOGIN_DIALOG_BOX = (By.CSS_SELECTOR, '#ui-id-1')
